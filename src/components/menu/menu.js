@@ -45,5 +45,11 @@ function menuMaker(linksArray) {
     menuList.appendChild(link);
   });
 
+  const tapMenu = document.querySelector(".menu-button");
+
+  tapMenu.addEventListener("click", () => {
+    menuWrapper.classList.toggle("menu--open");
+  });
+
   return menuWrapper;
 }

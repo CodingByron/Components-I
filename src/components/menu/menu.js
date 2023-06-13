@@ -39,6 +39,8 @@ function menuMaker(linksArray) {
 
   menuWrapper.appendChild(menuList);
 
+  menuWrapper.classList.add("menu");
+
   linksArray.forEach((linkText) => {
     const link = document.createElement("li");
     link.textContent = linkText;
@@ -53,3 +55,7 @@ function menuMaker(linksArray) {
 
   return menuWrapper;
 }
+
+console.log(menuMaker(menuItems));
+
+document.querySelector(".header").appendChild(menuMaker(menuItems));

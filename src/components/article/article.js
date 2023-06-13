@@ -88,6 +88,15 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
   },
+  {
+    title: "Javascript use in present day",
+    date: "Jan 1st, 2019",
+    firstParagraph: `The creation of Node.js in 2009 by Ryan Dahl sparked a significant increase in the usage of JavaScript outside of web browsers. Node combines the V8 engine, an event loop, and I/O APIs, thereby providing a stand-alone JavaScript runtime system. As of 2018, Node had been used by millions of developers, and npm had the most modules of any package manager in the world. `,
+
+    secondParagraph: `The ECMAScript draft specification is currently maintained openly on GitHub, and editions are produced via regular annual snapshots. Potential revisions to the language are vetted through a comprehensive proposal process. Now, instead of edition numbers, developers check the status of upcoming features individually. `,
+
+    thirdParagraph: `The current JavaScript ecosystem has many libraries and frameworks, established programming practices, and substantial usage of JavaScript outside of web browsers. Plus, with the rise of single-page applications and other JavaScript-heavy websites, several transpilers have been created to aid the development process.`,
+  },
 ];
 
 /*
@@ -136,9 +145,20 @@ function articleMaker(articleObject) {
   articleWrapper.appendChild(articleThirdParagraph);
   articleWrapper.appendChild(expandButton);
 
+  articleTitle.textContent = articleObject.title;
+  articleDate.textContent = articleObject.date;
+  articleFirstParagraph.textContent = articleObject.firstParagraph;
+  articleSecondParagraph.textContent = articleObject.secondParagraph;
+  articleThirdParagraph.textContent = articleObject.thirdParagraph;
+  expandButton.textContent = "+";
+
   expandButton.addEventListener("click", () => {
     articleWrapper.classList.toggle("article-open");
   });
 
   return articleWrapper;
 }
+
+data.forEach((article) => {
+  document.querySelector("div.articles").appendChild(articleMaker(article));
+});
